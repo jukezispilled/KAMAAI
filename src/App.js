@@ -40,6 +40,7 @@ function App() {
     "can't do that but I am a freak.",
     'meek call me daddy thats what',
     'nigga',
+    'nigga',
     'you need $20?',
     'ask JLO',
     'nigga say that to beyonce',
