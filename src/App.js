@@ -18,7 +18,7 @@ function App() {
   const [currentImage, setCurrentImage] = useState('diddy.png');
 
   const specificResponses = {
-    ca: [''],
+    ca: ['Epe5ssTWUMKnNhiLkLyo5tz9AM8hDtnQfZJ7DayApump'],
     twitterx: [
       <span>
         Check it boy <a href="https://x.com/TheFirstDiddyAi" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
