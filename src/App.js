@@ -21,12 +21,12 @@ function App() {
     ca: ['CA? You must be referring to California!'],
     twitterx: [
       <span>
-        Check it out <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
+        Check it boy <a href="https://x.com/TheFirstDiddyAi" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
       </span>,
     ],
     tg: [
       <span>
-        Join the fun <a href="https://t.me/" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
+        Look nigga <a href="https://t.me/DiddyAi" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
       </span>,
     ],
   };
