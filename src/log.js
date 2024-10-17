@@ -11,7 +11,7 @@ function Log() {
     ];
 
     return (
-        <div className="p-4 w-[65%] bg-zinc-800 text-white z-50">
+        <div className="p-4 w-[98.5%] md:w-[65%] bg-zinc-800 text-white z-50">
             <h2 className="text-2xl font-bold mb-4">Activity Monitor</h2>
             <table className="min-w-full bg-zinc-900 border border-gray-600">
                 <thead>

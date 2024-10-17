@@ -219,6 +219,7 @@ function App() {
         <MatrixBackground />
         <div className='fixed inset-0 w-full h-full'>
           <img src="meek.gif" className='w-[40%] absolute -bottom-[20px] left-0 z-[-20]'></img> {/* Set z-index to -20 */}
+          <img src="bieb.gif" className='w-[40%] absolute -bottom-[35px] right-0 z-[-20]'></img>
         </div>
         
         {/* Play/Pause Image */}
@@ -228,6 +229,12 @@ function App() {
           className="absolute size-32 -top-2 -left-2 hidden md:flex cursor-pointer z-50" 
           onClick={toggleAudio} 
         />
+
+        <div className='text-center pt-[15px]'>
+          <Window>
+            <span className='text-xs md:text-base'>CA: updating..</span>
+          </Window>
+        </div>
 
         <div className="w-full px-4 mt-8 z-20"> {/* Set z-index to 20 for the chat and window */}
           <div className="w-[75%] md:w-[25%] mx-auto mb-4">
