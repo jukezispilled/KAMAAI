@@ -233,7 +233,7 @@ function App() {
 
         <div className='text-center pt-[15px]'>
           <Window>
-            <span className='text-xs md:text-base'>CA: updating..</span>
+            <span className='text-xs md:text-base'>CA: Epe5ssTWUMKnNhiLkLyo5tz9AM8hDtnQfZJ7DayApump</span>
           </Window>
         </div>
 
