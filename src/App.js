@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Tracker from './Tracker';
 import Log from './log';
 import { Window, WindowContent, WindowHeader } from 'react95';
 import { ThemeProvider } from 'styled-components';
 import original from 'react95/dist/themes/original';
+import MatrixBackground from './Matrix';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -14,8 +15,7 @@ function App() {
   const [currentStreamedText, setCurrentStreamedText] = useState('');
   const controls = useAnimation();
   const chatRef = useRef(null);
-  const audioRef = useRef(new Audio('song.mp3')); // Reference for audio
-  const [currentImage, setCurrentImage] = useState('diddy.png');
+  const audioRef = useRef(new Audio('https://ia801008.us.archive.org/17/items/celebrategoodtimes...comeon/Celebrate%20Good%20Times...%20Come%20on%21%21%21.mp3'));
 
   const specificResponses = {
     ca: ['Epe5ssTWUMKnNhiLkLyo5tz9AM8hDtnQfZJ7DayApump'],
@@ -32,19 +32,18 @@ function App() {
   };
 
   const generalResponses = [
-    "ain't no party like a diddy party",
-    'oil up.',
-    'you after party ass',
-    "you ain't put in enough work yet g",
-    'nigga biebs was mine for 24 stfu lil nigga',
-    "can't do that but I am a freak.",
-    'meek call me daddy thats what',
-    'nigga',
-    'nigga',
-    'you need $20?',
-    'ask JLO',
-    'nigga say that to beyonce',
-    'future niggaai CEO *mic drop*',
+    "that's great and thank you for that, but we need to be there for eachother, that's it",
+    "I know what it's like to be from the hood, shit I used to be a nigg...neighbor",
+    "that doesn't matter, what does matter is a united america",
+    "the brotha's will be showing out I can promise you that",
+    "we need things to get done that need to get done so we can get it done",
+    "look nigga",
+    "niggaz everywhere love me. you could call me top nigga",
+    "stop that, just make sure you vote blue",
+    "all I know is how much love I have for my brothas and sistas",
+    "p diddy was just an acquaintence and nothing more",
+    "just look at my skin, I'm with y'all folks. we are gonna win no matter what it is",
+    "my main job is just to keep y'all distracted while my masters...recalculating...hey y'all",
   ];
 
   const getAIResponse = (input) => {
@@ -75,8 +74,9 @@ function App() {
     setIsStreaming(true);
     setCurrentStreamedText('');
 
-    for (let i = 0; i <= response.length; i++) {
-      await new Promise(resolve => setTimeout(resolve, 50)); // Control the typing speed
+    const chunkSize = 3;
+    for (let i = 0; i <= response.length; i += chunkSize) {
+      await new Promise(resolve => setTimeout(resolve, 30));
       setCurrentStreamedText(response.slice(0, i));
     }
 
@@ -99,13 +99,6 @@ function App() {
       await streamAIResponse(response);
     }
   };
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage(prevImage => (prevImage === 'diddy.png' ? 'diddy2.jpeg' : 'diddy.png'));
-    }, 5000);
-
-    return () => clearInterval(interval); // Cleanup the interval on unmount
-  }, []);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -135,64 +128,6 @@ function App() {
     }
   }, [chatHistory, currentStreamedText]);
 
-  const MatrixBackground = () => {
-    const canvasRef = useRef(null);
-
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const fontSize = 14;
-      const columns = Math.floor(canvas.width / fontSize);
-      const drops = Array(columns).fill(canvas.height);
-      const matrix = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-
-      function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = '#0F0';
-        ctx.font = fontSize + 'px monospace';
-
-        for (let i = 0; i < drops.length; i++) {
-          const text = matrix[Math.floor(Math.random() * matrix.length)];
-          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-          }
-
-          drops[i]++;
-        }
-      }
-
-      const intervalId = setInterval(draw, 33);
-
-      const handleResize = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      };
-
-      window.addEventListener('resize', handleResize);
-
-      return () => {
-        clearInterval(intervalId);
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
-
-    return (
-      <canvas ref={canvasRef} className="fixed inset-0 w-full h-full" style={{ zIndex: -30 }} />
-    );
-  };
-
-  // Function to handle play/pause audio
   const toggleAudio = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();
@@ -201,15 +136,13 @@ function App() {
     }
   };
 
-  // Inside your component
   const initialMessageRef = useRef(false);
 
   useEffect(() => {
-    const initialMessage = "DIDDYAI v6.9";
+    const initialMessage = "Hey y'all! Especially y'all brothers and sisters";
     
-    // Check if the initial message has already been streamed
     if (!initialMessageRef.current) {
-      initialMessageRef.current = true; // Mark as streamed
+      initialMessageRef.current = true;
       streamAIResponse(initialMessage);
     }
   }, []);
@@ -218,14 +151,9 @@ function App() {
     <ThemeProvider theme={original}>
       <div className="min-h-screen w-screen relative flex flex-col items-center overflow-hidden font-mono">
         <MatrixBackground />
-        <div className='fixed inset-0 w-full h-full'>
-          <img src="meek.gif" className='w-[40%] absolute -bottom-[20px] left-0 z-[-20]'></img> {/* Set z-index to -20 */}
-          <img src="bieb.gif" className='w-[40%] absolute -bottom-[35px] right-0 z-[-20]'></img>
-        </div>
         
-        {/* Play/Pause Image */}
         <img 
-          src="music.png" // Replace with your image source
+          src="music.png"
           alt="Play/Pause"
           className="absolute size-32 -top-2 -left-2 hidden md:flex cursor-pointer z-50" 
           onClick={toggleAudio} 
@@ -233,18 +161,18 @@ function App() {
 
         <div className='text-center pt-[15px]'>
           <Window>
-            <span className='text-xs md:text-base'>CA: Epe5ssTWUMKnNhiLkLyo5tz9AM8hDtnQfZJ7DayApump</span>
+            <span className='text-xs md:text-base'>CA: uploading</span>
           </Window>
         </div>
 
-        <div className="w-full px-4 mt-8 z-20"> {/* Set z-index to 20 for the chat and window */}
+        <div className="w-full px-4 mt-8 z-20">
           <div className="w-[75%] md:w-[25%] mx-auto mb-4">
             <Window>
               <WindowHeader>
-                DIDDYAI
+                COCOAI
               </WindowHeader>
               <WindowContent style={{ padding: '0' }}>
-                <img src={currentImage} alt="Diddy" />
+                <img src="coco.png" alt="COCO" />
               </WindowContent>
             </Window>
           </div>
@@ -283,7 +211,7 @@ function App() {
                 />
                 <button
                   onClick={handleSendMessage}
-                  className="bg-[#0f0] text-white p-2"
+                  className="bg-[#00AEF3] text-white p-2"
                 >
                   Send
                 </button>
@@ -299,18 +227,8 @@ function App() {
         </div>
 
         <div className='min-h py-[10px] w-screen flex justify-center items-center text-white gap-4'>
-          powered by <a href="https://openai.com/"><img src="open.svg" className='size-12 md:size-20'></img></a>
+          powered by <a href="https://openai.com/"><img src="open.svg" className='size-12 md:size-20' alt="OpenAI Logo" /></a>
         </div>
-
-        {/* Floating Image Animation */}
-        <motion.img
-          src="forget.png"
-          alt="Forget"
-          className="fixed left-1/2 transform -translate-x-1/2 w-[65vw] md:w-[35vw] z-50"
-          style={{ bottom: '0' }}
-          initial={{ y: '100%' }}
-          animate={controls}
-        />
       </div>
     </ThemeProvider>
   );

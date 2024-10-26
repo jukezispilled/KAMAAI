@@ -68,7 +68,7 @@ function Tracker() {
                 alt="Miami"
             />
             <div className='absolute bottom-4 right-4 p-2 bg-white font-mono text-base md:text-xl'>
-                Bieber Tracker
+                Biden Tracker
             </div>
             <div
                 className="absolute w-3 h-3 bg-red-500 rounded-full"

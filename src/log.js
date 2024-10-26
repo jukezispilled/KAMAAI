@@ -3,12 +3,12 @@ import React from 'react';
 function Log() {
     // Sample data for the activity log
     const activities = [
-        { id: 1, person: 'Beyonce', activity: 'recruiting agents', status: 'growth' },
-        { id: 2, person: 'Meek', activity: 'in the pool', status: 'stuck' },
-        { id: 3, person: 'Biebs', activity: 'meeting with FEDs', status: 'snitch' },
-        { id: 4, person: 'Usher', activity: 'puttin in work', status: 'active' },
-        { id: 5, person: 'Ansem', activity: 'top signal', status: 'fade' },
-    ];
+        { id: 1, person: 'Kamala Harris', activity: 'hosting town halls', status: 'active' },
+        { id: 2, person: 'Kamala Harris', activity: 'meeting with local leaders', status: 'focused' },
+        { id: 3, person: 'Kamala Harris', activity: 'campaign fundraising', status: 'growth' },
+        { id: 4, person: 'Kamala Harris', activity: 'public address preparation', status: 'busy' },
+        { id: 5, person: 'Kamala Harris', activity: 'engaging with young voters', status: 'inspired' },
+    ];    
 
     return (
         <div className="p-4 w-[98.5%] md:w-[65%] bg-zinc-800 text-white z-50">
@@ -16,7 +16,7 @@ function Log() {
             <table className="min-w-full bg-zinc-900 border border-gray-600">
                 <thead>
                     <tr className="bg-zinc-700">
-                        <th className="py-2 px-4 border-b">People</th>
+                        <th className="py-2 px-4 border-b">Person</th>
                         <th className="py-2 px-4 border-b">Activity</th>
                         <th className="py-2 px-4 border-b">Status</th>
                     </tr>
