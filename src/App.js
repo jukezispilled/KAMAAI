@@ -18,7 +18,7 @@ function App() {
   const audioRef = useRef(new Audio('https://ia801008.us.archive.org/17/items/celebrategoodtimes...comeon/Celebrate%20Good%20Times...%20Come%20on%21%21%21.mp3'));
 
   const specificResponses = {
-    ca: ['soon...'],
+    ca: ['D9eYomya1AqF5hpPWgB1zE7RQumhxtbkQxtWADnXpump'],
     twitterx: [
       <span>
         Check it boy <a href="https://x.com/cocoaicoin" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
@@ -161,7 +161,7 @@ function App() {
 
         <div className='text-center pt-[15px]'>
           <Window>
-            <span className='text-xs md:text-base'>CA: uploading</span>
+            <span className='text-xs md:text-base'>CA: D9eYomya1AqF5hpPWgB1zE7RQumhxtbkQxtWADnXpump</span>
           </Window>
         </div>
 
