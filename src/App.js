@@ -18,15 +18,15 @@ function App() {
   const audioRef = useRef(new Audio('https://ia801008.us.archive.org/17/items/celebrategoodtimes...comeon/Celebrate%20Good%20Times...%20Come%20on%21%21%21.mp3'));
 
   const specificResponses = {
-    ca: ['Epe5ssTWUMKnNhiLkLyo5tz9AM8hDtnQfZJ7DayApump'],
+    ca: ['soon...'],
     twitterx: [
       <span>
-        Check it boy <a href="https://x.com/TheFirstDiddyAi" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
+        Check it boy <a href="https://x.com/cocoaicoin" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
       </span>,
     ],
     tg: [
       <span>
-        Look nigga <a href="https://t.me/DiddyAi" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
+        Look nigga <a href="https://t.me/cocoaiportal" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
       </span>,
     ],
   };
@@ -207,7 +207,7 @@ function App() {
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={handleKeyDown}
                   className="border border-gray-300 p-2 flex-1 bg-zinc-800 outline-none caret-white text-white"
-                  placeholder="Type your message..."
+                  placeholder="Type message or 'twitter'/'telegram'/'ca'"
                 />
                 <button
                   onClick={handleSendMessage}
