@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Tracker from './Tracker';
-import Log from './log';
 import { Window, WindowContent, WindowHeader } from 'react95';
 import { ThemeProvider } from 'styled-components';
 import original from 'react95/dist/themes/original';
-import MatrixBackground from './Matrix';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -15,10 +13,10 @@ function App() {
   const [currentStreamedText, setCurrentStreamedText] = useState('');
   const controls = useAnimation();
   const chatRef = useRef(null);
-  const audioRef = useRef(new Audio('https://ia801008.us.archive.org/17/items/celebrategoodtimes...comeon/Celebrate%20Good%20Times...%20Come%20on%21%21%21.mp3'));
+  const audioRef = useRef(new Audio('https://ia801901.us.archive.org/5/items/INeedAGirl/I%20Need%20a%20Girl.mp3'));
 
   const specificResponses = {
-    ca: ['D9eYomya1AqF5hpPWgB1zE7RQumhxtbkQxtWADnXpump'],
+    ca: ['updating...'],
     twitterx: [
       <span>
         Check it boy <a href="https://x.com/cocoaicoin" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
@@ -139,7 +137,7 @@ function App() {
   const initialMessageRef = useRef(false);
 
   useEffect(() => {
-    const initialMessage = "Hey y'all! Especially y'all brothers and sisters";
+    const initialMessage = "Hey y'all brothas and sistas";
     
     if (!initialMessageRef.current) {
       initialMessageRef.current = true;
@@ -150,7 +148,15 @@ function App() {
   return (
     <ThemeProvider theme={original}>
       <div className="min-h-screen w-screen relative flex flex-col items-center overflow-hidden font-mono">
-        <MatrixBackground />
+        <video
+          className="fixed top-0 left-0 w-full h-full object-cover"
+          style={{ zIndex: -1 }}
+          src="bg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
         
         <img 
           src="music.png"
@@ -161,7 +167,7 @@ function App() {
 
         <div className='text-center pt-[15px]'>
           <Window>
-            <span className='text-xs md:text-base'>CA: D9eYomya1AqF5hpPWgB1zE7RQumhxtbkQxtWADnXpump</span>
+            <span className='text-xs md:text-base'>CA: updating...</span>
           </Window>
         </div>
 
@@ -169,10 +175,10 @@ function App() {
           <div className="w-[75%] md:w-[25%] mx-auto mb-4">
             <Window>
               <WindowHeader>
-                COCOAI
+                KAMAAI
               </WindowHeader>
               <WindowContent style={{ padding: '0' }}>
-                <img src="coco.png" alt="COCO" />
+                <img src="kama.png" alt="KAMAAI" />
               </WindowContent>
             </Window>
           </div>
@@ -211,7 +217,7 @@ function App() {
                 />
                 <button
                   onClick={handleSendMessage}
-                  className="bg-[#00AEF3] text-white p-2"
+                  className="bg-[#000080] text-white p-2"
                 >
                   Send
                 </button>
@@ -219,14 +225,11 @@ function App() {
             </div>
           </div>
         </div>
-        <div className='h-min py-[10%] w-screen flex justify-center items-center'>
-          <Log />
-        </div>
         <div className='h-min pt-[15%] pb-[25%] md:pt-[5%] md:pb-[10%] w-screen flex justify-center items-center'>
           <Tracker />
         </div>
 
-        <div className='min-h py-[10px] w-screen flex justify-center items-center text-white gap-4'>
+        <div className='min-h py-[10px] w-screen flex justify-center items-center gap-4'>
           powered by <a href="https://openai.com/"><img src="open.svg" className='size-12 md:size-20' alt="OpenAI Logo" /></a>
         </div>
       </div>

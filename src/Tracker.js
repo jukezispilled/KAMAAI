@@ -63,11 +63,11 @@ function Tracker() {
         <div className="relative mt-8 mb-8">
             <div ref={imageRef} className="relative border">
             <img 
-                src="miami.png" 
+                src="dc.png" 
                 className="w-[85vw] md:w-[55vw] h-auto" 
-                alt="Miami"
+                alt="Washington DC"
             />
-            <div className='absolute bottom-4 right-4 p-2 bg-white font-mono text-base md:text-xl'>
+            <div className='absolute bottom-4 right-4 p-2 bg-black text-white font-mono text-base md:text-xl'>
                 Biden Tracker
             </div>
             <div
