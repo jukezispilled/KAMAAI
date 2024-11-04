@@ -19,12 +19,12 @@ function App() {
     ca: ['updating...'],
     twitterx: [
       <span>
-        Check it boy <a href="https://x.com/cocoaicoin" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
+        Check it boy <a href="https://x.com/KAMAAItoken" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
       </span>,
     ],
     tg: [
       <span>
-        Look nigga <a href="https://t.me/cocoaiportal" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
+        Look nigga <a href="https://t.me/KAMAAIPortal" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
       </span>,
     ],
   };
