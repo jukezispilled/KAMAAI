@@ -16,7 +16,7 @@ function App() {
   const audioRef = useRef(new Audio('https://ia801901.us.archive.org/5/items/INeedAGirl/I%20Need%20a%20Girl.mp3'));
 
   const specificResponses = {
-    ca: ['updating...'],
+    ca: ['FBuyGA3vhcKP9LkLueAiFqanMoukpW54WqbSUdQLpump'],
     twitterx: [
       <span>
         Check it boy <a href="https://x.com/KAMAAItoken" target="_blank" rel="noopener noreferrer" className="text-blue-500">here</a>!
@@ -167,7 +167,7 @@ function App() {
 
         <div className='text-center pt-[15px]'>
           <Window>
-            <span className='text-xs md:text-base'>CA: updating...</span>
+            <span className='text-xs md:text-base'>CA: FBuyGA3vhcKP9LkLueAiFqanMoukpW54WqbSUdQLpump</span>
           </Window>
         </div>
 
